@@ -12,7 +12,6 @@ public class Functions {
 	}
 
 	public static int[] calculateFragmentation(String[] in){
-		System.out.println(in);
 		int[] out = {0,1};
 		return out;
 	}
