@@ -21,14 +21,13 @@ import java.util.List;
 /**
  * Created by alk_ on 10/25/16.
  * Cleaned also by alk on 10/30/19.
- * This code was written in 2016, back when I was young and foolish.
+ * This code was partially written in 2016, back when I was young and foolish.
  */
 
 
 public class GUI extends Application {
 	//Default value is the 1st example, is set here
 	static String sample = "A,2;B,3;A,-;C,4;D,5;B,-;E,15";
-
 
 	//All the buttons and the neccesary hooks to make the UI work
 	@Override
@@ -83,8 +82,6 @@ public class GUI extends Application {
 		grid.add(btnText3,1,4);
 		grid.add(btnText4,1,5);
 
-
-
 		grid.getRowConstraints().add(new RowConstraints(30));
 		grid.getRowConstraints().add(new RowConstraints(30));
 
@@ -92,17 +89,13 @@ public class GUI extends Application {
 		txtArea.setMinSize(200,100);
 		grid.add(txtArea,3,1);
 
-
-
 		HBox hBox = new HBox();
 		hBox.setPadding(new Insets(10,10,10,10));
 		hBox.setSpacing(10);
 		vBox.getChildren().add(hBox);
 
 		Button algo1 = new Button("Kirjuta väljund");
-
 		Button puhasta = new Button("Puhasta väljund");
-
 		hBox.getChildren().addAll(algo1,puhasta);
 
 		btn.setOnAction(new EventHandler<ActionEvent>() {
@@ -145,7 +138,6 @@ public class GUI extends Application {
 			}
 		});
 
-
 		vBox.getChildren().add(new GridPane());
 		Scene scene = new Scene(vBox, 300, 100);
 
@@ -160,7 +152,6 @@ public class GUI extends Application {
 
 	}
 
-
 	//Method updates the UI with a new Gridpane that is used as the output field
 	public static void update(GridPane newPane, VBox vBox, Stage primaryStage){
 		vBox.getChildren().remove(vBox.getChildren().size()-1);
@@ -169,18 +160,12 @@ public class GUI extends Application {
 	}
 
 	/**
-	 *Method takes some input to create the graphical output noted in the sample program pictures
-	 *
-	 * That input is formatted as an array like
-	 * [[metadata, 'a','a','b'....],[metadata,"a"..]]
-	 * metadata is the process description
+	 * 2D array input to create the graphical output noted in the sample program pictures
+	 * That input is formatted as a 2D array, see Functions.java
 	 */
 	public static GridPane createNewPane(String[][] in,TextArea txtArea){
 
 		GridPane grid = new GridPane();
-
-
-
 
 		Text txt1 = new Text("Samm");
 		txt1.setTextAlignment(TextAlignment.CENTER);
@@ -207,20 +192,15 @@ public class GUI extends Application {
 			}
 			addRow(strings,grid, index++);
 
-
 			int[] values = Functions.calculateFragmentation(strings);
 			txtArea.setText("Allesjäänud failidest on fragmenteeritud " + values[0] + "% \nja need failid hõlmavad " + values[1] + "%");
 		}
-
-
 
 		return grid;
 	}
 
 	/**
 	 * While the method above takes the whole stack of strings, this one takes just one line
-	 * metadata format "data"
-	 *
 	 */
 
 	public static GridPane addRow(String[] in,GridPane grid, int row){
@@ -232,11 +212,7 @@ public class GUI extends Application {
 		String[] cs = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "-",null};
 		chars = Arrays.asList(cs);
 
-
 		Text txt1 = new Text("Samm: " + Integer.toString(row));
-
-
-
 		txt1.setTextAlignment(TextAlignment.CENTER);
 
 		grid.add(txt1,0,row);
