@@ -7,7 +7,9 @@ public class Functions {
 	 * On full memory return inner list as null, see GUI:184
 	 **/
 	public static String[][] generateDisplay(String in){
-		String[][] out = {{"A", "A"}, {"B", "B"}, {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "-", "A"}};
+		String[][] out = {{"A", "A"},
+				  {"B", "B"},
+				  {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "-", "A"}};
 		return out;
 	}
 
